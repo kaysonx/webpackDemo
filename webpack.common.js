@@ -1,14 +1,18 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 
 module.exports = {
     entry: {
-        app: './src/index.js',
+        main: './src/index.js',
+        vendor: [
+            'lodash',
+        ]
     },
     output: {
-        filename: '[name].bundle.js',
+        filename: '[name].[chunkhash].js',
         path: path.resolve(__dirname, 'dist'),
         publicPath:'/',
     },
@@ -42,6 +46,12 @@ module.exports = {
             title: 'Output Management'
         }),
         new CleanWebpackPlugin(['dist']),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'runtime',
+        })
     ],
 };
 
