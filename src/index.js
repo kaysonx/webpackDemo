@@ -11,13 +11,13 @@ function component() {
     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
     element.classList.add('hello');
 
-    let myImg = new Image();
+    var myImg = new Image();
     myImg.src = Img;
     element.appendChild(myImg);
 
     console.log(Data);
 
-    let btn = document.createElement('button');
+    var btn = document.createElement('button');
     btn.innerHTML = 'Click me and check the console!';
     btn.onclick = print;
     element.appendChild(btn);
@@ -25,7 +25,7 @@ function component() {
     return element;
 }
 
-let element = component();
+var element = component();
 document.body.appendChild(element);
 
 
