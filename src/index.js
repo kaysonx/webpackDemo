@@ -3,6 +3,8 @@ import 'Base/style.css'
 import Img from 'Base/s.jpg';
 import Data from 'Base/data.xml'
 
+import print from './print';
+
 
 function component() {
     var element = document.createElement('div');
@@ -14,6 +16,11 @@ function component() {
     element.appendChild(myImg);
 
     console.log(Data);
+
+    let btn = document.createElement('button');
+    btn.innerHTML = 'Click me and check the console!';
+    btn.onclick = print;
+    element.appendChild(btn);
 
     return element;
 }
