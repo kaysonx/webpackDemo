@@ -22,6 +22,7 @@
     "webpack": "^3.5.5",
     "webpack-dev-middleware": "^1.12.0",
     "webpack-dev-server": "^2.7.1",
+    "webpack-hot-middleware": "^2.18.2",
     "xml-loader": "^1.2.1"
   },
   "dependencies": {
