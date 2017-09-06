@@ -1,7 +1,7 @@
 import _ from 'lodash';
-import './style.css'
-import Img from './s.jpg';
-import Data from './data.xml'
+import 'Base/style.css'
+import Img from 'Base/s.jpg';
+import Data from 'Base/data.xml'
 
 
 function component() {
