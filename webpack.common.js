@@ -6,14 +6,14 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
-        main: './src/index.js',
+        main: ['./src/index.js', 'webpack-hot-middleware/client?&reload=true'],
         vendor: [
             'lodash',
-            'babel-polyfill'
+            'babel-polyfill',
         ]
     },
     output: {
-        filename: '[name].[chunkhash].js',
+        filename: '[name].[hash].js',
         path: path.resolve(__dirname, 'dist'),
         publicPath:'/',
     },
@@ -44,7 +44,7 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude:/node_modules/,
-                use: 'babel-loader',
+                use: ['babel-loader'],
             },
             {
                 test: /\.ejs$/,
