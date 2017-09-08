@@ -38,6 +38,11 @@ module.exports = {
             {
                 test: /\.xml$/,
                 use: ['xml-loader']
+            },
+            {
+                test: /\.js$/,
+                exclude:/node_modules/,
+                use: 'babel-loader',
             }
         ]
     },

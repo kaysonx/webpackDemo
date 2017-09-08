@@ -7,17 +7,17 @@ import print from './print';
 
 
 function component() {
-    var element = document.createElement('div');
+    let element = document.createElement('div');
     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
     element.classList.add('hello');
 
-    var myImg = new Image();
+    let myImg = new Image();
     myImg.src = Img;
     element.appendChild(myImg);
 
     console.log(Data);
 
-    var btn = document.createElement('button');
+    let btn = document.createElement('button');
     btn.innerHTML = 'Click me and check the console!';
     btn.onclick = print;
     element.appendChild(btn);
@@ -25,7 +25,7 @@ function component() {
     return element;
 }
 
-var element = component();
+let element = component();
 document.body.appendChild(element);
 
 

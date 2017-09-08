@@ -1,3 +1,3 @@
-export default function() {
+export default () => {
     console.log('I was hot');
 }
