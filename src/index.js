@@ -1,40 +1,15 @@
-import _ from 'lodash';
-import 'Base/style.css'
-import Img from 'Base/s.jpg';
-import Data from 'Base/data.xml'
+import React from 'react';
+import { render } from 'react-dom';
 
-import print from './print';
+const component = (props) => (<h1>Hello, babel</h1>);
 
-
-function component() {
-    let element = document.createElement('div');
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-    element.classList.add('hello');
-
-    let myImg = new Image();
-    myImg.src = Img;
-    element.appendChild(myImg);
-
-    console.log(Data);
-
-    let btn = document.createElement('button');
-    btn.innerHTML = 'Click me and check the console!';
-    btn.onclick = print;
-    element.appendChild(btn);
-
-    return element;
-}
-
-let element = component();
-document.body.appendChild(element);
+const renderApp = () => render(component(), document.getElementById('root'));
+renderApp();
 
 
 if(module.hot) {
     module.hot.accept('./print.js', function () {
         console.log('Accepting the updated print module!');
-        print();
-        document.body.removeChild(element);
-        element = component();
-        document.body.appendChild(element);
+        renderApp();
     })
 }

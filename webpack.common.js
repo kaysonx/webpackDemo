@@ -9,6 +9,7 @@ module.exports = {
         main: './src/index.js',
         vendor: [
             'lodash',
+            'babel-polyfill'
         ]
     },
     output: {
@@ -19,7 +20,8 @@ module.exports = {
     resolve: {
         alias: {
             Base: path.resolve(__dirname, 'src/asset/'),
-        }
+        },
+        extensions: ['.js','.jsx'],
     },
     module: {
         rules: [
@@ -40,15 +42,21 @@ module.exports = {
                 use: ['xml-loader']
             },
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude:/node_modules/,
                 use: 'babel-loader',
+            },
+            {
+                test: /\.ejs$/,
+                exclude:/node_modules/,
+                use: 'ejs-loader',
             }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Output Management'
+            title: 'Management',
+            template: 'src/index.tpl.ejs'
         }),
         new CleanWebpackPlugin(['dist']),
         new webpack.optimize.CommonsChunkPlugin({
